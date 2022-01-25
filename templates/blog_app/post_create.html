@@ -1,0 +1,14 @@
+{% extends 'blog_app/blog_app_base.html' %}
+
+{% block body_block %}
+
+{% if user.is_authenticated %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-primary" value="Submit">
+</form>
+{% else %}
+<h1>You must login to post!</h1>
+{% endif %}
+{% endblock %}
